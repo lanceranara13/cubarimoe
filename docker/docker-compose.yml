@@ -8,7 +8,9 @@ services:
       # (Mostly) everything else is based off the
       # compose file's dir
       dockerfile: ./docker/Dockerfile
-    command: python -u docker/init.py
+    command: >
+      sh -c "git config --global --add safe.directory /cubarimoe &&
+             python -u docker/init.py"
     volumes:
       - type: bind
         source: ../
